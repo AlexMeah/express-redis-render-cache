@@ -10,7 +10,7 @@ _____
 ```js
 const supportedQuerystrings = {
     key: true, // Accepts all values
-    complex: () => {} // Return a boolean
+    complex: (value) => {} // Return a boolean
 };
 ```
 
