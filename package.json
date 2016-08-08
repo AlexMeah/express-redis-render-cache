@@ -1,0 +1,28 @@
+{
+  "name": "express-redis-cache",
+  "version": "1.0.0",
+  "description": "Cache the result of res.render, supports querystring whitelisting and validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . && mocha tests/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlexMeah/express-redis-cache.git"
+  },
+  "keywords": [
+    "cache",
+    "express",
+    "express",
+    "cache",
+    "express",
+    "render",
+    "cache"
+  ],
+  "author": "Alex Meah <hi@alexmeah.com> (http://alexmeah.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMeah/express-redis-cache/issues"
+  },
+  "homepage": "https://github.com/AlexMeah/express-redis-cache#readme"
+}
