@@ -3,6 +3,8 @@ _____
 
 ## Usage
 
+*Requires Node V6*
+
 ### Cache Key generation
 
 ```js
