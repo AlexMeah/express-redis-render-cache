@@ -1,0 +1,25 @@
+{
+    "env": {
+        "mocha": true,
+        "browser": true,
+        "node": true
+    },
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+        "indent": [2, 4],
+        "import/imports-first": 0,
+        "import/no-extraneous-dependencies": 0,
+        "no-underscore-dangle": 0,
+        "comma-dangle": 0,
+        "new-cap": 0,
+        "max-len": 0,
+        "id-length": 0,
+        "no-multiple-empty-lines": ["error", {
+            "max": 1
+        }]
+    }
+}
