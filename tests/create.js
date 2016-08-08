@@ -32,7 +32,7 @@ describe('Create cache cacheMiddleware', () => {
     app.use(cacheMiddleware);
     app.use('/blog', namedCacheMiddleware);
 
-    app.get('/', (req, res) => {
+    app.all('/', (req, res) => {
         res.render('index', {
             test: response
         });
@@ -57,6 +57,49 @@ describe('Create cache cacheMiddleware', () => {
 
     afterEach((done) => {
         client.flushdb(done);
+    });
+
+    describe('HTTP Methods', () => {
+        const cacheable = [
+            'get',
+            'head'
+        ];
+
+        const notCacheable = [
+            'post',
+            'put',
+            'delete',
+        ];
+
+        cacheable.forEach((method) => {
+            it(`should cache - ${method}`, (done) => {
+                client.set('__express_cache__/', 'cached');
+
+                request(app)[method]('/')
+                    .expect('X-LOG-REDIS-HIT', 'true')
+                    .expect('X-LOG-REDIS-CACHE-KEY', '__express_cache__/')
+                    .expect((resp) => {
+                        if (method === 'get') {
+                            resp.text.trim().should.equal('cached');
+                        } else {
+                            resp.text.trim().should.equal('');
+                        }
+                    })
+                    .end(done);
+            });
+        });
+
+        notCacheable.forEach((method) => {
+            it(`should not cache - ${method}`, (done) => {
+                client.set('__express_cache__/', 'cached');
+
+                request(app)[method]('/')
+                    .expect((resp) => {
+                        resp.text.trim().should.equal(response);
+                    })
+                    .end(done);
+            });
+        });
     });
 
     describe('Flat', () => {
