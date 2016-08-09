@@ -5,6 +5,15 @@ _____
 
 *Requires Node V6*
 
+### Redis Client Setup
+
+```js
+const redis = require('redis');
+const client = redis.createClient();
+
+app.set('redis', client); // The middleware reads its Redis client from app
+```
+
 ### Cache Key generation
 
 ```js
