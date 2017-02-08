@@ -1,4 +1,6 @@
 # The tests in this module flush Redis DB 15 to change the test DB use REDIS_DB=num to override
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/AlexMeah/express-redis-render-cache.svg)](https://greenkeeper.io/)
 _____
 
 ## Usage
