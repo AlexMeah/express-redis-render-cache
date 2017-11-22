@@ -26,7 +26,7 @@ const supportedQuerystrings = {
 ### Basic
 
 ```js
-    const cache = expressRedisCache(supportedQuerystrings);
+    const cache = expressRedisCache.create(supportedQuerystrings);
 
     app.use(cache);
 ```
@@ -34,7 +34,7 @@ const supportedQuerystrings = {
 ### Named
 
 ```js
-    const cache = expressRedisCache('blogPosts', supportedQuerystrings);
+    const cache = expressRedisCache.create('blogPosts', supportedQuerystrings);
 
     app.use('/blog', cache); // OR
     app.use(cache);
